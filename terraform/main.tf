@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "web" {
 resource "aws_s3_bucket_policy" "web" {
   bucket = aws_s3_bucket.web.id
   policy = templatefile("bucket-policy.json", {
-    "bucket_name" = "test-react-yam"
+    "bucket_name" = var.bucket_name
   })
 }
 
