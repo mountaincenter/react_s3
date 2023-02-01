@@ -3,10 +3,10 @@
 #===================
 
 resource "aws_s3_bucket" "web" {
-  bucket        = var.bucket_name
+  bucket        = "test-react-yam"
   force_destroy = true
   policy = templatefile("bucket-policy.json", {
-    "bucket_name" = var.bucket_name
+    "bucket_name" = "test-react-yam"
   })
   versioning {
     enabled = true
