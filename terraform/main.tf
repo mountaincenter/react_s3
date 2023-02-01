@@ -3,7 +3,7 @@
 #===================
 
 resource "aws_s3_bucket" "web" {
-  bucket        = "test-react-yam"
+  bucket        = var.bucket_name
   force_destroy = true
 }
 
