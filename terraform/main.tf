@@ -5,15 +5,30 @@
 resource "aws_s3_bucket" "web" {
   bucket        = "test-react-yam"
   force_destroy = true
+}
+
+resource "aws_s3_bucket_policy" "web" {
+  bucket = aws_s3_bucket.web.id
   policy = templatefile("bucket-policy.json", {
     "bucket_name" = "test-react-yam"
   })
-  versioning {
-    enabled = true
+}
+
+resource "aws_s3_bucket_website_configuration" "web" {
+  bucket = aws_s3_bucket.web.id
+  index_document {
+    suffix = "index.html"
   }
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
+  error_document {
+    key = "error.html"
+  }
+
+}
+
+resource "aws_s3_bucket_versioning" "web" {
+  bucket = aws_s3_bucket.web.id
+  versioning_configuration {
+    status = "Enabled"
   }
 }
 
