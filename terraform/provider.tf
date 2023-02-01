@@ -6,6 +6,12 @@ terraform {
     }
   }
   required_version = "1.1.0"
+  backend "s3" {
+    bucket  = "terraform-tfstate-yam"
+    region  = "ap-northeast-1"
+    key     = "terraform.tfstate"
+    encrypt = true
+  }
 }
 
 provider "aws" {
