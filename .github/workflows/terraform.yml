@@ -3,7 +3,7 @@ name: terraform apply
 on:
   push:
     branches:
-    - githubactions
+    - development
 
 permissions:
   id-token: write
