@@ -11,3 +11,9 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           ls -al
+          ls -al .github/workflows
+      - name: terraform
+        working-directory: ./terraform
+        run: |
+          ls -al
+          ls -al ../
