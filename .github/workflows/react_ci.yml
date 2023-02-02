@@ -10,7 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Checkout
-       uses: actions/checkout
+       uses: actions/checkout@v2
 
-     - run: yarn run eslint
-     - run: yarn test --coverage
+     - name: react eslint
+       working-directory: ./frontend/react-app
+       run: yarn run eslint
+
+     - name: react test
+       working-directory: ./frontend/react-app
+       run: yarn test --coverage
