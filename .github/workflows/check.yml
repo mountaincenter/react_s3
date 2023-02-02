@@ -12,4 +12,5 @@ jobs:
       - working-directory: ./terraform
         run: |
           ls -al
-          ls -al ../frontend/react-app/build
+          ls -al ../frontend/
+          ls -al ../frontend/react-app
