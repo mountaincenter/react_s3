@@ -1,0 +1,16 @@
+name: react_CI
+
+on:
+  push:
+    branches:
+    - react_ci
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout
+       uses: actions/checkout
+
+     - run: yarn run eslint
+     - run: yarn test --coverage
