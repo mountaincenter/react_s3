@@ -12,8 +12,3 @@ jobs:
       - run: |
           ls -al
           ls -al .github/workflows
-      - name: terraform
-        working-directory: ./terraform
-        run: |
-          ls -al
-          ls -al ../
