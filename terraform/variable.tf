@@ -6,7 +6,7 @@ variable "aws_region" {
   default = "ap-northeast-1"
 }
 
-variabel "domain_name" {
+variable "domain_name" {
   default = "ymnk.fun"
 }
 

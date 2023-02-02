@@ -11,11 +11,9 @@ resource "aws_s3_bucket" "cloudfront_logs" {
 # s3
 #===================
 
-resource "aws_s3_bucket_policy" "web" {
-  bucket = aws_s3_bucket.web.id
-  policy = templatefile("bucket-policy.json", {
-    "bucket_name" = var.bucket_name
-  })
+resource "aws_s3_bucket" "web" {
+  bucket        = local.bucket.name
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_website_configuration" "web" {
@@ -48,18 +46,14 @@ resource "aws_s3_bucket_policy" "main" {
 
 
 
-# resource "aws_s3_bucket_public_access_block" "web" {
-#   bucket                  = aws_s3_bucket.web.id
-#   block_public_acls       = true
-#   block_public_policy     = false
-#   ignore_public_acls      = true
-#   restrict_public_buckets = false
-# }
+resource "aws_s3_bucket_public_access_block" "web" {
+  bucket                  = aws_s3_bucket.web.id
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
 
-# resource "aws_s3_bucket_policy" "main" {
-#   bucket = aws_s3_bucket.web.id
-#   policy = data.aws_iam_policy_document.s3_policy.json
-# }
 
 # resource "aws_s3_object" "main" {
 #   bucket       = aws_s3_bucket.web.id
