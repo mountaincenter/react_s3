@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload update terraform.
+          Edit <code>src/App.tsx</code> and save to reload update terraform ci/cd.
         </p>
         <a
           className="App-link"
