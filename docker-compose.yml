@@ -26,8 +26,8 @@ services:
     depends_on:
       - db
   front:
-    # env_file:
-    #   - ./frontend/react-app/.env
+    env_file:
+      - ./frontend/react-app/.env
     build:
       context: ./frontend/
       dockerfile: Dockerfile
